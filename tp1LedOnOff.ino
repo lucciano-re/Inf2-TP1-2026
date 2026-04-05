@@ -4,7 +4,6 @@ const int PIN_LED = 13;
 
 //Variables de Estado y Tiempos
 bool ledEncendido = false;
-bool ultimoEstadoBoton = LOW;
 
 void setup() {
   pinMode(PIN_BOTON, INPUT);
@@ -24,8 +23,6 @@ void loop() {
     ledEncendido = false;
     delay(200);
   }
-  //debounce
-  ultimoEstadoBoton = lecturaActual;
   //endload
   digitalWrite(PIN_LED, ledEncendido ? HIGH : LOW);
 }
