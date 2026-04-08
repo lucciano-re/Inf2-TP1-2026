@@ -3,18 +3,18 @@
 #include <time.h> 
 #include <string.h>
 
-// Definiciones Globales
+//definiciones
 #define TAM 5
 #define MAX_TIROS 10
 
-//Variables para el Ranking
+//variables del ranking
 char mejorJugador[50] = "Lucho";
 int mejorPuntaje = 99;
 
-//Prototipos de Funciones
+//definici√≥n
 void inicializarTablero(char t[TAM][TAM], int *fb, int *cb);
 void mostrarTablero(char t[TAM][TAM], int mostrarBarco);
-
+ 
 int realizarDisparo(char t[TAM][TAM], int fb, int cb);
 int validarDisparo(char t[TAM][TAM]);
 
@@ -26,7 +26,7 @@ int main() {
 
     srand(time(NULL)); //Semilla rand
 
-    do {
+    do {  
         printf("\n=== TP1 INFORMATICA II - 2026 ===\n");
 		
 		if (mejorPuntaje < 20)printf("Record: %s con %d tiros\n", mejorJugador, mejorPuntaje);
@@ -52,7 +52,7 @@ int main() {
             // Fin del juego
             mostrarTablero(tablero, 1); // Mostrar barco
             if (gano) {
-                printf("Treinta anos navegando he visto ese tiro exactamente... una vez. Y era yo. AsÌ que no te pongas muy comodo, entendiste? Le diste en %d caÒonazos.\n", tiros);
+                printf("Treinta anos navegando he visto ese tiro exactamente... una vez. Y era yo. AsÔøΩ que no te pongas muy comodo, entendiste? Le diste en %d caÔøΩonazos.\n", tiros);
                 printf("Dime tu nombre muchacho, esto debe ser recordado: ");
                 scanf("%s", nombreActual);
                 if (tiros < mejorPuntaje) { // Record
@@ -78,7 +78,11 @@ void inicializarTablero(char t[TAM][TAM], int *fb, int *cb) {
 }
 
 void mostrarTablero(char t[TAM][TAM], int mostrarBarco) {
-    printf("\n  0 1 2 3 4\n");
+    printf("  ");
+    for (int i = 0; i < TAM; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
     for (int i = 0; i < TAM; i++) {
         printf("%d ", i);
         for (int j = 0; j < TAM; j++) {
@@ -105,7 +109,7 @@ int realizarDisparo(char t[TAM][TAM], int fb, int cb) {
 
     // Validar repetido
     if (t[f][c] == 'A' || t[f][c] == 'B') { 
-        printf("°Ya disparaste aqui! No se resta el intento.\n");
+        printf("ÔøΩYa disparaste aqui! No se resta el intento.\n");
         return -1; // same
     }
 
