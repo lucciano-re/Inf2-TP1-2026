@@ -4,14 +4,14 @@
 #include <string.h>
 
 //definiciones
-#define TAM 5
-#define MAX_TIROS 10
+#define TAM 2
+#define MAX_TIROS 100
 
 //variables del ranking
 char mejorJugador[50] = "Lucho";
 int mejorPuntaje = 99;
 
-//definición
+//definicion
 void inicializarTablero(char t[TAM][TAM], int *fb, int *cb);
 void mostrarTablero(char t[TAM][TAM], int mostrarBarco);
  
@@ -52,7 +52,7 @@ int main() {
             // Fin del juego
             mostrarTablero(tablero, 1); // Mostrar barco
             if (gano) {
-                printf("Treinta anos navegando he visto ese tiro exactamente... una vez. Y era yo. As� que no te pongas muy comodo, entendiste? Le diste en %d ca�onazos.\n", tiros);
+                printf("Treinta anos navegando he visto ese tiro exactamente... una vez. Y era yo. Asi que no te pongas muy comodo, entendiste? Le diste en %d canonazos.\n", tiros);
                 printf("Dime tu nombre muchacho, esto debe ser recordado: ");
                 scanf("%s", nombreActual);
                 if (tiros < mejorPuntaje) { // Record
@@ -78,15 +78,15 @@ void inicializarTablero(char t[TAM][TAM], int *fb, int *cb) {
 }
 
 void mostrarTablero(char t[TAM][TAM], int mostrarBarco) {
-    printf("  ");
+    printf("   ");
     for (int i = 0; i < TAM; i++) {
-        printf("%d ", i);
+        printf("%2d ", i);
     }
     printf("\n");
     for (int i = 0; i < TAM; i++) {
-        printf("%d ", i);
+        printf("%2d ", i);
         for (int j = 0; j < TAM; j++) {
-            printf("%c ", t[i][j]);
+            printf(" %c ", t[i][j]);
         }
         printf("\n");
     }
@@ -109,7 +109,7 @@ int realizarDisparo(char t[TAM][TAM], int fb, int cb) {
 
     // Validar repetido
     if (t[f][c] == 'A' || t[f][c] == 'B') { 
-        printf("�Ya disparaste aqui! No se resta el intento.\n");
+        printf("Ya has disparado ahi, y ya has fallado ahi! Te perdonare la bala por esta vez recluta.\n");
         return -1; // same
     }
 
